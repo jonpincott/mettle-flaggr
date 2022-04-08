@@ -1,0 +1,87 @@
+### Admin gets all users
+GET http://localhost:8080/user
+Authorization: Basic admin admin
+
+### Admin creates a user
+POST http://localhost:8080/user
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "username": "user"
+}
+
+### Admin confirms users
+GET http://localhost:8080/user
+Authorization: Basic admin admin
+
+### Admin gets all flags
+GET http://localhost:8080/flag
+Authorization: Basic admin admin
+
+### Admin creates a flag
+POST http://localhost:8080/flag
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "flag"
+}
+
+### User checks flags
+GET http://localhost:8080/user/me/flag
+Authorization: Basic user user
+
+### Admin activates flag for user
+PUT http://localhost:8080/userflag
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "user": "user",
+  "flag": "flag",
+  "state": true
+}
+
+### User checks flags
+GET http://localhost:8080/user/me/flag
+Authorization: Basic user user
+
+### Admin creates a flag
+POST http://localhost:8080/flag
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "flag 2",
+  "state": true
+}
+
+### Admin creates a flag
+POST http://localhost:8080/flag
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "flag 3",
+  "state": true
+}
+
+### User checks flags
+GET http://localhost:8080/user/me/flag
+Authorization: Basic user user
+
+### Admin deactivates flag for user
+PUT http://localhost:8080/userflag
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "user": "user",
+  "flag": "flag 3",
+  "state": false
+}
+
+### User checks flags
+GET http://localhost:8080/user/me/flag
+Authorization: Basic user user
